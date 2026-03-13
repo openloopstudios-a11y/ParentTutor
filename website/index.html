@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ParentTutor | Scan Homework, Teach with Confidence</title>
+    <meta
+      name="description"
+      content="ParentTutor helps parents scan homework, get instant explanations, and teach their child with confidence using step-by-step guidance."
+    />
+    <style>
+      :root {
+        --navy: #111938;
+        --blue: #4e8fdb;
+        --blue-dark: #2f70c6;
+        --blue-soft: #eaf3ff;
+        --text: #111827;
+        --muted: #5a6476;
+        --bg: #f5f8fd;
+        --card: #ffffff;
+        --border: #e6ebf3;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+        color: var(--text);
+        background: radial-gradient(circle at top right, #dcecff, transparent 40%),
+          radial-gradient(circle at top left, #eaf4ff, transparent 35%), var(--bg);
+        line-height: 1.55;
+      }
+
+      .container {
+        width: min(1120px, 92%);
+        margin: 0 auto;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(8px);
+        background: rgba(245, 248, 253, 0.86);
+        border-bottom: 1px solid rgba(17, 24, 39, 0.06);
+      }
+
+      .header-inner {
+        height: 74px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: inherit;
+        font-weight: 800;
+        letter-spacing: 0.2px;
+      }
+
+      .brand img {
+        width: 38px;
+        height: 38px;
+        object-fit: contain;
+      }
+
+      .top-links a {
+        color: var(--muted);
+        text-decoration: none;
+        font-weight: 600;
+        margin-left: 18px;
+      }
+
+      .hero {
+        padding: 62px 0 36px;
+      }
+
+      .hero-wrap {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 34px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        background: var(--blue-soft);
+        color: var(--blue-dark);
+        border: 1px solid #c8defd;
+        border-radius: 999px;
+        padding: 6px 12px;
+        font-size: 0.88rem;
+        font-weight: 700;
+        margin-bottom: 14px;
+      }
+
+      h1 {
+        margin: 0 0 14px;
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        line-height: 1.12;
+      }
+
+      .hero p {
+        margin: 0 0 24px;
+        max-width: 620px;
+        font-size: 1.08rem;
+        color: var(--muted);
+      }
+
+      .actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        border-radius: 11px;
+        padding: 12px 18px;
+        font-weight: 700;
+        border: 1px solid transparent;
+      }
+
+      .btn-primary {
+        background: var(--blue);
+        color: #ffffff;
+      }
+
+      .btn-primary:hover {
+        background: var(--blue-dark);
+      }
+
+      .btn-secondary {
+        border-color: #ced7e6;
+        color: var(--text);
+        background: #ffffff;
+      }
+
+      .hero-image {
+        background: linear-gradient(180deg, #f0f7ff 0%, #f8fbff 100%);
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        padding: 18px;
+        box-shadow: 0 18px 36px rgba(33, 57, 93, 0.12);
+      }
+
+      .hero-image img {
+        width: 100%;
+        max-height: 590px;
+        object-fit: contain;
+        border-radius: 16px;
+      }
+
+      section {
+        padding: 24px 0;
+      }
+
+      .block-title {
+        margin: 0 0 14px;
+        font-size: 1.7rem;
+      }
+
+      .features-box,
+      .about-box,
+      .contact-box {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0 10px 24px rgba(18, 32, 54, 0.06);
+      }
+
+      .features-list {
+        margin: 0;
+        padding-left: 20px;
+      }
+
+      .features-list li {
+        margin-bottom: 12px;
+        color: var(--muted);
+      }
+
+      .screens {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+        gap: 16px;
+        margin-top: 18px;
+      }
+
+      .screen-card {
+        background: #f8fbff;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 10px;
+      }
+
+      .screen-card img {
+        width: 100%;
+        height: 360px;
+        object-fit: cover;
+        object-position: top;
+        border-radius: 10px;
+      }
+
+      .screen-label {
+        margin: 8px 4px 2px;
+        font-size: 0.92rem;
+        color: #3f4a5d;
+        font-weight: 600;
+      }
+
+      .about-box p,
+      .contact-box p {
+        color: var(--muted);
+        margin: 0;
+      }
+
+      .contact-box a {
+        color: var(--blue-dark);
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      footer {
+        margin-top: 26px;
+        border-top: 1px solid var(--border);
+        padding: 20px 0 30px;
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .footer-links a {
+        color: inherit;
+        text-decoration: none;
+        margin-left: 12px;
+      }
+
+      @media (max-width: 920px) {
+        .hero-wrap {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-image img {
+          max-height: 540px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .top-links {
+          display: none;
+        }
+
+        .hero {
+          padding-top: 36px;
+        }
+
+        .features-box,
+        .about-box,
+        .contact-box {
+          padding: 18px;
+        }
+
+        .screens {
+          grid-template-columns: 1fr;
+        }
+
+        .screen-card img {
+          height: 430px;
+        }
+
+        .footer-links a {
+          margin-left: 0;
+          margin-right: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#top">
+          <img src="./media/logo.png" alt="ParentTutor logo" />
+          <span>ParentTutor</span>
+        </a>
+        <nav class="top-links">
+          <a href="#features">Features</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top" class="container">
+      <section class="hero">
+        <div class="hero-wrap">
+          <div>
+            <span class="eyebrow">Built for Real Homework Moments</span>
+            <h1>Scan any problem. Get clear steps. Teach with confidence.</h1>
+            <p>
+              ParentTutor turns confusing homework into simple, parent-friendly
+              explanations. Snap a photo, get a clear concept breakdown, and use
+              step-by-step scripts made for your child.
+            </p>
+            <div class="actions">
+              <a class="btn btn-primary" href="#contact">Get in touch</a>
+              <a class="btn btn-secondary" href="#features">See features</a>
+            </div>
+          </div>
+          <div class="hero-image">
+            <img
+              src="./media/home-screen.png"
+              alt="ParentTutor home screen showing Scan Homework"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="features">
+        <div class="features-box">
+          <h2 class="block-title">Features</h2>
+          <ul class="features-list">
+            <li>Snap a homework photo and get an instant concept explanation.</li>
+            <li>Receive "Say this to your child" guidance in plain language.</li>
+            <li>Follow structured step-by-step teaching scripts with answers.</li>
+            <li>Personalize support with parent and child onboarding profiles.</li>
+          </ul>
+
+          <div class="screens">
+            <article class="screen-card">
+              <img
+                src="./media/scan-result-screen.png"
+                alt="ParentTutor homework scan result with guidance"
+              />
+              <p class="screen-label">Scan result with parent script</p>
+            </article>
+            <article class="screen-card">
+              <img
+                src="./media/steps-screen.png"
+                alt="ParentTutor step by step instruction screen"
+              />
+              <p class="screen-label">Step-by-step breakdown for teaching</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="about-box">
+          <h2 class="block-title">About ParentTutor</h2>
+          <p>
+            ParentTutor is an AI learning guide made for busy families. Instead of
+            searching for answers, parents can quickly understand the concept and explain
+            it in a way their child understands. Our goal is to reduce homework stress and
+            help families build confidence together.
+          </p>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="contact-box">
+          <h2 class="block-title">Contact</h2>
+          <p>
+            Questions, support, or partnerships:
+            <a href="mailto:openloopstudios@gmail.com">openloopstudios@gmail.com</a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <span>&copy; <span id="year"></span> ParentTutor. All rights reserved.</span>
+        <div class="footer-links">
+          <a
+            href="https://openloopstudios-a11y.github.io/ParentTutor/legal/privacy-policy.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Privacy Policy</a
+          >
+          <a
+            href="https://openloopstudios-a11y.github.io/ParentTutor/legal/terms-of-use.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Terms of Service</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
